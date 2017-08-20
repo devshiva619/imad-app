@@ -6,14 +6,34 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var articleOne = {
-    title:'Article One | Devesh verma',
-    heading: 'Article one',
-    date: 'Sep 9, 2017',
-    content: `  
-            <p>
-                This is article one, edited from github.
-            </p>`
+var articles = { 
+    'article-one' : {
+        title:'Article One | Devesh verma',
+        heading: 'Article one',
+        date: 'Sep 9, 2017',
+        content: `  
+                <p>
+                    This is article one, edited from github.
+                </p>`
+    },
+    'article-two' : {
+        title:'Article Two | Devesh verma',
+        heading: 'Article one',
+        date: 'Sep 9, 2017',
+        content: `  
+                <p>
+                    This is article one, edited from github.
+                </p>`
+    },
+    'article-three' : {
+        title:'Article Three | Devesh verma',
+        heading: 'Article one',
+        date: 'Sep 9, 2017',
+        content: `  
+                <p>
+                    This is article one, edited from github.
+                </p>`
+    },
 };
 
 function createTemplate (data) {
@@ -50,7 +70,7 @@ function createTemplate (data) {
     </body>
     </html>
     `;
-    return htmltemplate
+    return htmltemplate;
 }
 
 app.get('/', function (req, res) {
@@ -61,17 +81,11 @@ app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 
-app.get('/article-one', function (req, res){
-   res.send(createTemplate(articleOne));
+app.get('/:articleName', function (req, res){
+   var articleName = req.params.articleName;
+   res.send(createTemplate(articles[articleName]));
 });
 
-app.get('/article-two', function (req, res){
-    res.sendFile(path.join(__dirname,'ui','article-two.html'));    
-});
-
-app.get('/article-three', function (req, res){
-    res.sendFile(path.join(__dirname,'ui','article-three.html'));    
-});
 
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
