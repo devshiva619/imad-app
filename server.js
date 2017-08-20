@@ -18,7 +18,7 @@ var articles = {
     },
     'article-two' : {
         title:'Article Two | Devesh verma',
-        heading: 'Article one',
+        heading: 'Article two',
         date: 'Sep 9, 2017',
         content: `  
                 <p>
@@ -27,7 +27,7 @@ var articles = {
     },
     'article-three' : {
         title:'Article Three | Devesh verma',
-        heading: 'Article one',
+        heading: 'Article Three',
         date: 'Sep 9, 2017',
         content: `  
                 <p>
